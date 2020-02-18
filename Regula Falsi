@@ -1,0 +1,44 @@
+function [c,k] = Regula_Falsi(a,b,epsilon)
+
+format long
+
+foa = exp(-a) - log(a);
+fob = exp(-b) - log(b);
+
+    if foa*fob >= 0
+        
+        disp('Please choose another value for a and b.')
+
+    return
+    end
+    
+foc = inf;
+k = 0;
+
+while abs(foc) > epsilon
+    
+    c = a-((foa*(b-a))/(fob-foa));
+    foa = exp(-a) - log(a);
+    fob = exp(-b) - log(b);
+    c = a-((foa*(b-a))/(fob-foa));
+    foc = exp(-c) - log(c);
+    
+    values = [k a b c foa fob foc]
+    
+    if foc > 0
+        
+        a = c;
+        
+    elseif foc < 0
+        
+        b = c;
+        
+    end
+    
+    k = k+1;
+    
+end
+
+k
+
+return
