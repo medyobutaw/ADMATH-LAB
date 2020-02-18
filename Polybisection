@@ -1,0 +1,27 @@
+function[r,k] = polybisection(coef,a,b,e)
+
+a = polyval(coef,a);
+b = polyval(coef,b);
+fc1 = inf;
+k1 = 0;
+
+if (a*b)<0
+    ab = [a,b];
+    
+    while abs(fc1) > e
+        
+        c1 = (ab(1)+ab(2))/2;
+        fc1 = exp(-c1) - log(c1);
+        
+        if fc1 > 0
+            ab(1) = c1;
+        else
+            ab(2) = c1; 
+        end
+        k1 = k1+1;
+    end
+    c1
+    k1
+else
+    disp('Choose another value for interval.')
+end
