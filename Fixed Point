@@ -12,3 +12,6 @@ while ((abs(fxi) > e) && (k < 5))
 end
 k
 end
+
+    
+    
