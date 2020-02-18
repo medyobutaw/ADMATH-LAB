@@ -1,11 +1,11 @@
-function[r,k] = fixedpoint(x1,e)
+function[r,k] = fixedpoint(xi,e)
 
 k = 0
-fxi1 = inf;
+fxi = inf;
 
-while ((abs(fxil) > e) && (k < 5))
+while ((abs(fxi) > e) && (k < 5))
     xi1 = exp(exp(-xi));
-    fxi1 = exp(-xi1)-log(xi1);
+    fxi = exp(-xi)-log(xi);
     
     x1 = xi1;
     k = k+1;
